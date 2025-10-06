@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+
+
+class GreetingScreen extends StatelessWidget {
+  const GreetingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Greeting App'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Hello, World! with custom styling
+            const Text(
+              'Hello, World!',
+              style: TextStyle(
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            // Additional Text
+            const Text(
+              'Welcome to Flutter!',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // Optional Image
+            Image.network(
+              'https://flutter.dev/images/flutter-logo-sharing.png',
+              width: 150,
+              height: 150,
+            ),
+            const SizedBox(height: 30),
+
+            // Interactive Button
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green, // Button color
+              ),
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Button Pressed!')),
+                );
+              },
+              child: const Text('Press Me'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
